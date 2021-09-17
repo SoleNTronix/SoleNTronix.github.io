@@ -6,5 +6,5 @@ h3{color: tomato; }
 h4{color: springgreen;}
 main{color: thistle;}
 .wrapper
-{text-align: center;
-text-size-adjust: 1000px;}
+{margin: 0 auto;
+max-width: 1000px;}
