@@ -1,0 +1,10 @@
+header{background-color: chartreuse;}
+footer{background-color: blueviolet;}
+h1{color: aquamarine; text-shadow: 1cm, black;}
+h2{color: teal; text-decoration: underline;}
+h3{color: tomato; }
+h4{color: springgreen;}
+main{color: thistle;}
+.wrapper
+{text-align: center;
+text-size-adjust: 1000px;}
