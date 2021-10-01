@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <meta charset="UTF-8">
     <title>Siteik</title>
+    <style>
+    </style>
 </head>
 <body>
     <nav>
@@ -15,70 +17,72 @@
             </li>
             <li>
                 <a href="../index.html"> 
-                    <h4>О себе</h4>
+                    <h3>О себе</h3>
                 </a>
             </li>
             <li>
                 <a href="../pages/resume.html">
-                    <h4>Резюме</h4>
+                    <h3>Резюме</h3>
                 </a>
             </li>
             <li>
                 <a href="../pages/portfolio.html">
-                    <h4>Портфолио</h4>
+                    <h3>Портфолио</h3>
                 </a>
             </li>
             <li>
                 <a href="../index.html#comps">
-                    <h4>Компетенции</h4>
+                    <h3>Компетенции</h3>
                 </a>
             </li>
             <li>
                 <a href="../pages/contacts.html">
-                    <h4>Контакты</h4>
+                    <h3>Контакты</h3>
                 </a>
             </li>
 
         </ul>
     </nav>
     <header>
-        <h2>Веб-технологии</h2>
+        <h6>Эта форма</h6>
     </header>
     <main>
-        Как Вам удобно получить ответ?
-        <form action="">
-            <p><input name="answer" type="radio"> Почта</p>
-            <p><input name="answer" type="radio"> Телефон</p>
-            <p><input name="answer" type="radio" checked> Не нужно отвечать</p>                              
-        </form>
-        
-        Укажите тему вопроса:
-        <form action="">
-            <select name="theme">
-                <option>Работа</option>
-                <option>Учёба</option>
-                <option>Личное</option>
-                <option>Другое</option>
-            </select>                
-        </form>
-        
-        И ещё один вопрос?
-        <form action="">
-            <p><input name="question" type="checkbox" name="cb1"> Может так</p>
-            <p><input name="question" type="checkbox" name="cb2"> Или не так</p>
-            <p><input name="question" type="checkbox" name="cb3"> Иначе</p>    
-        </form>
-        <form action="">
-            Ваше имя:
-            <p><input type="text"></p>
-            Email:
-            <p><input type="email" name="" id=""></p>
-            Номер телефона:
-            <p><input type="tel" name="" id=""></p>
-            Ваш вопрос:
-            <p><textarea name="" id="" cols="30" rows="10"></textarea>
-            <p><input type="submit" value="Отправить"></p>
-        </form>
+        <div class="contacts">
+            
+            <form action="">
+                Как Вам удобно получить ответ?
+                <p><input name="answer" type="radio"> Почта</p>
+                <p><input name="answer" type="radio"> Телефон</p>
+                <p><input name="answer" type="radio" checked> Не нужно отвечать</p>                              
+            
+                Укажите тему вопроса:
+           
+                <select name="theme" class="border">
+                    <option>Работа</option>
+                    <option>Учёба</option>
+                    <option>Личное</option>
+                    <option>Другое</option>
+                </select>                
+            
+            
+                И ещё один вопрос?
+            
+                <p><input name="question" type="checkbox" name="cb1"> Может так</p>
+                <p><input name="question" type="checkbox" name="cb2"> Или не так</p>
+                <p><input name="question" type="checkbox" name="cb3"> Иначе</p>    
+            
+            
+                Ваше имя:
+                <p><input type="text" class="border"></p>
+                Email:
+                <p><input type="email" name="" id="" class="border"></p>
+                Номер телефона:
+                <p><input type="tel" name="" id="" class="border"></p>
+                Ваш вопрос:
+                <p><textarea name="" id="" cols="30" rows="10"></textarea>
+                <p><input type="submit" value="Отправить" class="border"></p>
+            </form>
+        </div>
     </main>
     <footer>
         _________________________________

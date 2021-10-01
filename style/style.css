@@ -1,25 +1,38 @@
 footer{background-color: blueviolet;}
-header{display: flex; justify-content: center; align-items: flex-end; width: 912px; height: 265.6px;}
-h1{color: white; margin: 0%;}
+header{display: flex; justify-content: space-evenly; align-items: flex-end;  width: 912px; height: 265.6px;}
+h1{color: white; font-size:xx-large; text-align: center;}
 h2{color: white;}
 h3{color: black;}
 h4{color: white;}
-main{padding-top: 15%;}
+h5{color: aqua;}
+h6{background-color: aquamarine;font-size: xx-large; display: flex; width: 1000px; justify-content: center;}
+main{padding-top: 10%;}
 
-.ul
+.menu
 {
     display: flex;
     justify-content: flex-end;
-
+    margin-right: 55px;
+    height: 90px;
 }
+
+.compslist
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
 .logo
 {
     display: flex;
     align-self: flex-start;
+    margin: 0%;
 }
-.menu
+.blackbg
 {
     background-color: black;
+    padding-top: 3%;
     padding-bottom: 5%;
 }
 .intro
@@ -27,4 +40,30 @@ main{padding-top: 15%;}
     display: flex;
     background-image: url(../img/bg.jpg);
     padding-bottom: 25%;
+}
+.afterintro
+{
+    margin-bottom: 40%;
+}
+.firstPic
+{
+    float: right;
+}
+.contacts
+{
+    border: solid 10px aquamarine;
+    border-radius: 10px;
+    border-style:ridge;
+    width: 500px;
+    margin: auto;
+    margin-bottom: 175px;
+    display: flex;
+    height: 960px;
+}
+.border
+{
+    border: solid 5px aquamarine;
+    border-radius: 5px;
+    border-style: groove;
+    width: 225px;
 }
