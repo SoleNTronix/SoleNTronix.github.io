@@ -14,31 +14,31 @@
                 </a>
                 <ul class="menu">
                 
-                    <ul>
+                    <ul class="submenu">
                         <h5>|</h5>
                         <a href="index.html"> 
                             <h4>О себе</h4>
                         </a>
                     </ul>
-                    <ul>
+                    <ul class="submenu">
                         <h5>|</h5>
                         <a href="pages/resume.html">
                             <h4>Резюме</h4>
                         </a>
                     </ul>
-                    <ul>
+                    <ul class="submenu">
                         <h5>|</h5>
                         <a href="pages/portfolio.html">
                             <h4>Портфолио</h4>
                         </a>
                     </ul>
-                    <ul>
+                    <ul class="submenu">
                         <h5>|</h5>
                         <a href="#comps">
                             <h4>Компетенции</h4>
                         </a>
                     </ul>
-                    <ul>
+                    <ul class="submenu">
                         <h5>|</h5>
                         <a href="pages/contacts.html">
                             <h4>Контакты</h4>
@@ -49,7 +49,7 @@
             
         </nav>
         <div class="intro">
-            <header>
+            <header style="display: flex; justify-content: space-evenly; align-items: flex-end;  width: 912px; height: 265.6px;">
                 <h1>Веб-технологии</h1>
                 <h2>Университет "Дубна"</h2>
             </header>
@@ -86,54 +86,53 @@
                     <h4>HTML5</h4>
                 </ul>
                 <ul>
-                    <img src="img/unity.png" alt="unity" width="60">
+                    <img src="img/unity.png" alt="unity" width="60" class="unitypic">
                     <h4>Unity3D</h4>
                 </ul>
             </div>
         </div>
-            <h3>Услуги</h3>
-        <ul>
-            <li>
-                Проработка игровых интерфейсов и анимации
-            </li>
-            <li>
-                Подготовка логотипа, гайдлайнов бренда и кнопок
-            </li>
-            <li>
-                Подготовка интерфейсов для продуктов, связанных с виртуальной реальностью
-            </li>
-            <li>
-                Интерфейсы для интернет-магазинов, порталов новостей, интернет-сервисов, аналитических платформ
-            </li>
-        </ul>
-        <ul>
-            <li>
-                Разработка UX/UI дизайна
-            </li>
-            <li>
-                Создание яркой дизайн концепции для любого продукта или сервиса
-            </li>
-            <li>
-                Умные посадочные страницы спроектированные по передовому подходу SEO Driven
-            </li>
-            <li>
-                Создание умных шаблонов для любых макетов. Шаблоны для социальных сетей, презентаций и генеративный фирменный стиль.
-            </li>
-        </ul>
-        <header>
-            <h2>Заголовок</h2>
-        </header>
-        <div>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus nobis soluta sit earum voluptas tenetur hic ea quae in praesentium aspernatur laudantium itaque, cum deserunt unde laborum corrupti esse maxime?
+            <h3 style="display: flex; justify-content: center;">Услуги</h3>
+        <div class="services">
+            <ul>
+                <li>
+                    Проработка игровых интерфейсов и анимации
+                </li>
+                <li>
+                    Подготовка логотипа, гайдлайнов бренда и кнопок
+                </li>
+                <li>
+                    Подготовка интерфейсов для продуктов, связанных с виртуальной реальностью
+                </li>
+                <li>
+                    Интерфейсы для интернет-магазинов, порталов новостей, интернет-сервисов, аналитических платформ
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Разработка UX/UI дизайна
+                </li>
+                <li>
+                    Создание яркой дизайн концепции для любого продукта или сервиса
+                </li>
+                <li>
+                    Умные посадочные страницы спроектированные по передовому подходу SEO Driven
+                </li>
+                <li>
+                    Создание умных шаблонов для любых макетов. Шаблоны для социальных сетей, презентаций и генеративный фирменный стиль.
+                </li>
+            </ul>
         </div>
-        <button>Подробнее</button>
-        <ul></ul>
+        <div class="lastpar">
+            <h3 style="color: white;">Заголовок</h3>
+            <p style="color: white; margin: auto; width: 800px;">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Doloribus nobis soluta sit earum voluptas tenetur hic ea quae in praesentium aspernatur laudantium itaque, cum deserunt unde laborum corrupti esse maxime?
+            </p>
+            <button style="margin: 3%">Подробнее</button>
         </div>
+        
     </main>
     <footer>
         <div>
-            _________________________________   
-            <div>Cайт разработан ФИ, Copyright © 2021</div>
             <a href="https://vk.com/kiricsl7834">
                 <img src="img/vk.png" alt="vk" width="30">
             </a>
@@ -143,8 +142,7 @@
                 <img src="img/gh.png" alt="github" width="30">
             </a>
         </div>
-        
-        
+        <div>Cайт разработан ФИ, Copyright © 2021</div>
     </footer>
 </body>
 </html>
