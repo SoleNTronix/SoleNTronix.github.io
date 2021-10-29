@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    </style>
+    <script>
+        function f(a)
+        {
+            document.images[0].src="../img/cat"+a+".jpg"
+        }    
+    </script>
+</head>
+<body>
+    <img src="../img/cat1.jpg" alt="cat0" height="600 px" onclick="f('1')">
+    <img src="../img/cat1.jpg" alt="cat1" height="250 px" onclick="f('1')">
+    <img src="../img/cat2.jpg" alt="cat2" height="250 px" onclick="f('2')">
+    <img src="../img/cat3.jpg" alt="cat3" height="250 px" onclick="f('3')">
+</body>
+</html>

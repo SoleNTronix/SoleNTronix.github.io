@@ -4,14 +4,67 @@
     <link rel="stylesheet" href="../style/style.css">
     <meta charset="UTF-8">
     <title>Siteik</title>
-    <style>
-    </style>
+    <script>
+        function checkform()
+        {   
+            naame = document.formochka.naame.value;
+            mail = document.formochka.mail.value;
+            phone_num = document.formochka.phone_num.value;
+            question_text = document.formochka.question_text.value;
+            
+        
+            let rb_value;
+            if(document.getElementById("rb1").checked)
+            {
+                rb_value="Ответ придёт по email адресу: "+mail;
+
+            }
+            else if(document.getElementById("rb2").checked)
+            {
+                rb_value="Ответ придёт по номеру телефона: "+phone_num;
+            }
+            else if(document.getElementById("rb3").checked)
+            {
+                rb_value="На вопрос не будет ответа";
+            }
+
+            console.log("naame: "+naame+"; mail: "+mail+"; phone_num: "+phone_num+"; question_text: "+question_text);
+            if (naame!="" && ((mail!="" && document.getElementById("rb1").checked) || 
+            (phone_num!="" && document.getElementById("rb2").checked) || 
+            document.getElementById("rb3").checked) && question_text!="")
+            {
+                alert("Уважаемый "+naame+", Ваш вопрос будет рассмотрен. "+rb_value+".");
+            }
+            else
+            {
+                alert("Форма заполнена неверно. Возможно вы пропустили какие-то поля!");
+            }
+        }
+        function hide(id)
+        {
+            document.getElementById("tel_div").style.display = "block";
+            document.getElementById("mail_div").style.display = "block";
+            if(id == "rb1")
+            {
+                document.getElementById("tel_div").style.display = "none";
+            }
+            else if(id == "rb2")
+            {
+                document.getElementById("mail_div").style.display = "none";
+            }
+            else if(id == "rb3")
+            {
+                document.getElementById("tel_div").style.display = "none";
+                document.getElementById("mail_div").style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="blackbg">
         <nav>
             <ul class="logo">
-                <a href="index.html">
+                <a href="../index.html">
                     <img src="../img/anime.webp" alt="logo" width="100px">
                 </a>
                 <ul class="menu">
@@ -57,11 +110,11 @@
     <main>
         <div class="contacts">
             
-            <form action="" >
+            <form action="javascript: checkform()" name="formochka">
                 Как Вам удобно получить ответ?
-                <p><input name="answer" type="radio"> Почта</p>
-                <p><input name="answer" type="radio"> Телефон</p>
-                <p><input name="answer" type="radio" checked> Не нужно отвечать</p>                              
+                <p><input name="answer" type="radio" id="rb1" onclick="hide(this.id)"> Почта</p>
+                <p><input name="answer" type="radio" id="rb2" onclick="hide(this.id)"> Телефон</p>
+                <p><input name="answer" type="radio" id="rb3" onclick="hide(this.id)" checked> Не нужно отвечать</p>                              
             
                 Укажите тему вопроса:
            
@@ -79,16 +132,25 @@
                 <p><input name="question" type="checkbox" name="cb2"> Или не так</p>
                 <p><input name="question" type="checkbox" name="cb3"> Иначе</p>    
             
-            
-                Ваше имя:
-                <p><input type="text" class="border"></p>
-                Email:
-                <p><input type="email" name="" id="" class="border"></p>
-                Номер телефона:
-                <p><input type="tel" name="" id="" class="border"></p>
-                Ваш вопрос:
-                <p><textarea name="" id="" cols="30" rows="10"></textarea>
+                <div>
+                    Ваше имя:
+                    <p><input type="text" name="naame" class="border"></p>
+                </div>
+                <div id="mail_div" style="display: none;">
+                    Email:
+                    <p><input type="email" name="mail" id="" class="border"></p>
+                </div>
+                <div id="tel_div" style="display: none;">
+                    Номер телефона:
+                    <p><input type="tel" name="phone_num" id="" class="border"></p>
+                </div>
+                <div>
+                    Ваш вопрос:
+                    <p><textarea name="question_text" id="" cols="30" rows="10"></textarea>
+                </div>
+                
                 <p><input type="submit" value="Отправить" class="border"></p>
+                
             </form>
         </div>
     </main>
