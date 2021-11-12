@@ -6,8 +6,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body
+        {
+            background-color: violet;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        .img-list
+        {
+            display: flex; 
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        button
+        {
+            width: 500px;
+        }
+        .border-img
+        {
+            
+            border: 4px;
+            border-style:outset;
+            border-color: aqua;
+        }
     </style>
     <script>
+        id = null;
+        a = 1;
+        function start()
+		{
+			id = setTimeout("start()", 3000);
+            document.images[0].src= document.images[a].src;
+            document.images[a].classList.add("border-img");
+            document.images[a-1].classList.remove("border-img");
+            if (a == 3)
+            {
+                a = 0;
+                
+            }
+            if (a == 1)
+            {
+                document.images[3].classList.remove("border-img");
+            }
+            a = a + 1;
+            
+		}
+        function stop()
+		{
+			clearTimeout(id);
+		}
         function f(a)
         {
             document.images[0].src="../img/cat"+a+".jpg"
@@ -15,9 +67,21 @@
     </script>
 </head>
 <body>
-    <img src="../img/cat1.jpg" alt="cat0" height="600 px" onclick="f('1')">
-    <img src="../img/cat1.jpg" alt="cat1" height="250 px" onclick="f('1')">
-    <img src="../img/cat2.jpg" alt="cat2" height="250 px" onclick="f('2')">
-    <img src="../img/cat3.jpg" alt="cat3" height="250 px" onclick="f('3')">
+    <img src="../img/cat1.jpg" alt="cat0" height="450 px">
+    <div class="img-list">
+        <p>
+            <img src="../img/cat1.jpg" alt="cat1" height="125 px" onclick="f('1')">
+        </p>
+        <p>
+            <img src="../img/cat2.jpg" alt="cat2" height="125 px" onclick="f('2')">
+        </p>
+        <p>
+            <img src="../img/cat3.jpg" alt="cat3" height="125 px" onclick="f('3')">
+        </p>
+        
+    </div>
+    
+    <button onclick="start()">Start!</button>
+    <button onclick="stop()">Stop!</button>
 </body>
 </html>
