@@ -3,9 +3,47 @@
 <head>
     <link rel="stylesheet" href="style/style.css">
     <meta charset="UTF-8">
-    <title>Siteik</title>
+    <title>О себе</title>
+    <style>
+        .compslist
+        {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: flex-end;
+        }
+        .afterintro
+        {
+            margin:3%;
+            padding-bottom: 27%;
+        }
+        .firstPic
+        {
+            float: right;
+            margin-left: 10%;
+            margin-right: 5%;
+        }
+        .services
+        {
+            display: flex;
+        }
+        .lastpar
+        {
+            background-color: black;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: auto;
+        }
+        .unitypic
+        {
+            background-color: white;
+        }
+        
+    </style>
+    <script>
+    </script>
 </head>
-<body>
+<body class="defaultTheme">
     <div class="blackbg">  
         <nav>
             <ul class="logo">
@@ -53,7 +91,9 @@
                     </ul>
                 </ul>
             </ul>
-            
+            <ul>
+                <button onclick="t_change()">Change Theme</button>
+            </ul>
         </nav>
         <div class="intro">
             <header style="display: flex; justify-content: space-evenly; align-items: flex-end;  width: 912px; height: 265.6px;">
@@ -149,7 +189,7 @@
                 <img src="img/gh.png" alt="github" width="30">
             </a>
         </div>
-        <div>Cайт разработан ФИ, Copyright © 2021</div>
+        <div>Cайт разработан Лыковым Кириллом, Copyright © 2021</div>
     </footer>
 </body>
 </html>

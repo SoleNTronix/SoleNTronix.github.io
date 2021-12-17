@@ -18,12 +18,13 @@
                 "d3 d3 d4 d4"
                 "d5 d5 d6 d6"
                 "d5 d5 d6 d6"
+            
             ;
             height: 100vh;
         }
         .bg_clr
         {
-            background-color:cornflowerblue;
+            background-color:rgba(55, 189, 207, 0.5);
             margin: 5px;
             
         }
@@ -47,9 +48,9 @@
         }
 
         <!--Gallery-->
+
         .gallery
         {
-            background-color: violet;
             display: flex;
             align-items: center;
             align-content: center;
@@ -74,6 +75,45 @@
             border-color: aqua;
         }
 
+        <!--Contact form-->
+
+        .contacts
+        {
+            border: solid 10px aquamarine;
+            border-radius: 10px;
+            border-style:ridge;
+            width: 500px;
+            margin: auto;
+            margin-bottom: 175px;
+            height: 960px;
+        }
+        .border
+        {
+            border: solid 5px aquamarine;
+            border-radius: 5px;
+            border-style:ridge;
+            width: 225px;
+        }
+        .notcopytext
+        {
+            display: flex;
+        }
+        .graph
+        {
+            display: flex;
+        }
+        .regform
+        {
+            display: flex;
+        }
+
+        .locstorarea
+        {
+            display: flex; 
+            align-items: center; 
+            flex-direction: column;
+        }
+
     </style>
     <script>
         function t_change()
@@ -87,22 +127,24 @@
                 document.body.classList.replace("defaultTheme","darkTheme");
             }
         }
+
+        //Gallery
+
         id = null;
-        a = 1;
+        a = 2;
         function start()
 		{
 			id = setTimeout("start()", 3000);
-            document.images[0].src= document.images[a].src;
+            document.images[1].src= document.images[a].src;
             document.images[a].classList.add("border-img");
             document.images[a-1].classList.remove("border-img");
-            if (a == 3)
+            if (a == 5)
             {
-                a = 0;
-                
+                a = 2;
             }
-            if (a == 1)
+            if (a == 2)
             {
-                document.images[3].classList.remove("border-img");
+                document.images[4].classList.remove("border-img");
             }
             a = a + 1;
 		}
@@ -112,8 +154,69 @@
 		}
         function f(a)
         {
-            document.images[0].src="../img/cat"+a+".jpg"
+            document.images[1].src="../img/cat"+a+".jpg"
         }
+
+        //Contact form
+
+        function checkform()
+        {   
+            naame = document.formochka.naame.value;
+            mail = document.formochka.mail.value;
+            phone_num = document.formochka.phone_num.value;
+            question_text = document.formochka.question_text.value;
+            
+        
+            let rb_value;
+            if(document.getElementById("rb1").checked)
+            {
+                rb_value="Ответ придёт по email адресу: "+mail;
+
+            }
+            else if(document.getElementById("rb2").checked)
+            {
+                rb_value="Ответ придёт по номеру телефона: "+phone_num;
+            }
+            else if(document.getElementById("rb3").checked)
+            {
+                rb_value="На вопрос не будет ответа";
+            }
+
+            console.log("naame: "+naame+"; mail: "+mail+"; phone_num: "+phone_num+"; question_text: "+question_text);
+            if (naame!="" && ((mail!="" && document.getElementById("rb1").checked) || 
+            (phone_num!="" && document.getElementById("rb2").checked) || 
+            document.getElementById("rb3").checked) && question_text!="")
+            {
+                alert("Уважаемый "+naame+", Ваш вопрос будет рассмотрен. "+rb_value+".");
+            }
+            else
+            {
+                alert("Форма заполнена неверно. Возможно вы пропустили какие-то поля!");
+            }
+        }
+        function hide(id)
+        {
+            document.getElementById("tel_div").style.display = "block";
+            document.getElementById("mail_div").style.display = "block";
+            if(id == "rb1")
+            {
+                document.getElementById("tel_div").style.display = "none";
+            }
+            else if(id == "rb2")
+            {
+                document.getElementById("mail_div").style.display = "none";
+            }
+            else if(id == "rb3")
+            {
+                document.getElementById("tel_div").style.display = "none";
+                document.getElementById("mail_div").style.display = "none";
+            }
+        }
+
+        //Area for local storage
+        function ls_data() {            
+            localStorage.setItem('data', data.value);
+        };
     </script>
 </head>
 <body>
@@ -166,9 +269,6 @@
                 </ul>
                 
             </ul>
-            <ul>
-                <button onclick="t_change()">Change Theme</button>
-            </ul>
         </nav>
         <div class="intro">
             <header style="display: flex; justify-content: space-evenly; align-items: flex-end;  width: 912px; height: 265.6px;">
@@ -177,47 +277,177 @@
             </header>
         </div>
     </div>
+    <div>
+        <input type="checkbox" name="" id="block1">Фотогалерея
+        <input type="checkbox" name="" id="block2">Форма
+        <input type="checkbox" name="" id="block3">Диаграмма
+        <input type="checkbox" name="" id="block4">Некопируемый текст
+        <input type="checkbox" name="" id="block5">Форма регистрации
+        <input type="checkbox" name="" id="block6">Поле ввода
+    </div>
+    
     <main>
         <!-- Gallery-->
-    <div class="gallery bg_clr d1">
+    <div class="gallery bg_clr d1" id="gallery_h">
         <div>
-            <div>
-                <img src="../img/cat1.jpg" alt="cat0" height="450 px">
-                <div class="img-list">
-                    <p>
-                        <img src="../img/cat1.jpg" alt="cat1" height="125 px" onclick="f('1')">
-                    </p>
-                    <p>
-                        <img src="../img/cat2.jpg" alt="cat2" height="125 px" onclick="f('2')">
-                    </p>
-                    <p>
-                        <img src="../img/cat3.jpg" alt="cat3" height="125 px" onclick="f('3')">
-                    </p>
-            
-                </div>
+            <div style="display: flex; justify-content: center;">
+                <img src="../img/cat1.jpg" alt="cat0" height="450 px">                
+            </div>
+            <div class="img-list">
+                <p>
+                    <img src="../img/cat1.jpg" alt="cat1" height="125 px" onclick="f('1')">
+                </p>
+                <p>
+                    <img src="../img/cat2.jpg" alt="cat2" height="125 px" onclick="f('2')">
+                </p>
+                <p>
+                    <img src="../img/cat3.jpg" alt="cat3" height="125 px" onclick="f('3')">
+                </p>
+        
             </div>
         </div>
-        <button onclick="start()">Start!</button>
-        <button onclick="stop()">Stop!</button>
+        <div style="display: flex; justify-content: center;">
+            <button onclick="start()">Start!</button>
+            <button onclick="stop()">Stop!</button>
+        </div>
+        
     </div>
-    <div class="bg_clr d2">
-        2
+        <!-- Contacts-->
+    <div class="contacts bg_clr d2" id="contacts_h">
+            <form action="javascript: checkform()" name="formochka">
+                Как Вам удобно получить ответ?
+                <p><input name="answer" type="radio" id="rb1" onclick="hide(this.id)"> Почта</p>
+                <p><input name="answer" type="radio" id="rb2" onclick="hide(this.id)"> Телефон</p>
+                <p><input name="answer" type="radio" id="rb3" onclick="hide(this.id)" checked> Не нужно отвечать</p>                              
+            
+                Укажите тему вопроса:
+           
+                <select name="theme" class="border">
+                    <option>Работа</option>
+                    <option>Учёба</option>
+                    <option>Личное</option>
+                    <option>Другое</option>
+                </select>                
+            
+            
+                И ещё один вопрос?
+            
+                <p><input name="question" type="checkbox" name="cb1"> Может так</p>
+                <p><input name="question" type="checkbox" name="cb2"> Или не так</p>
+                <p><input name="question" type="checkbox" name="cb3"> Иначе</p>    
+            
+                <div>
+                    Ваше имя:
+                    <p><input type="text" name="naame" class="border"></p>
+                </div>
+                <div id="mail_div" style="display: none;">
+                    Email:
+                    <p><input type="email" name="mail" id="" class="border"></p>
+                </div>
+                <div id="tel_div" style="display: none;">
+                    Номер телефона:
+                    <p><input type="tel" name="phone_num" id="" class="border"></p>
+                </div>
+                <div>
+                    Ваш вопрос:
+                    <p><textarea name="question_text" id="" cols="30" rows="10"></textarea>
+                </div>
+                <p><input type="submit" value="Отправить" class="border"></p>
+                
+            </form>
     </div>
-    <div class="bg_clr d3">
+    <div class="graph bg_clr d3" id="graph_h">
         3
     </div>
-    <div class="bg_clr d4">
+    <div class="notcopytext bg_clr d4" id="nct_h">
         4
     </div>
-    <div class="bg_clr d5">
+    <div class="regform bg_clr d5" id="rf_h">
         5
     </div>
-    <div class="bg_clr d6">
-        6
+    <div class="locstorarea bg_clr d6" id="lsa_h">
+        <textarea name="data" id="data" cols="30" rows="10"></textarea>
+        <button onclick="ls_data()">Отправить в localStorage</button>
     </div>
+    <script>
+        /*function hideBlocks(cl){
+                let checked = this.checked;
+                if (cl == "gallery_h")
+                {
+                    if (checked)
+                    {
+                        document.getElementById("gallery_h").style.visibility='visible';
+                    }
+                    else
+                    {
+                        document.getElementById("gallery_h").style.visibility='hidden';
+                    };
+                }
+                if (cl == "contacts_h")
+                {
+                    if (checked)
+                    {
+                        document.getElementById("contacts_h").style.display = "block";
+                    }
+                    else
+                    {
+                        document.getElementById("contacts_h").style.display = "none";
+                    };
+                }
+                if (cl == "graph_h")
+                {
+                    if (checked)
+                    {
+                        document.getElementById("graph_h").style.display = "block";
+                    }
+                    else
+                    {
+                        document.getElementById("graph_h").style.display = "none";
+                    };
+                }
+                if (cl == "nct_h")
+                {
+                    if (checked)
+                    {
+                        document.getElementById("nct_h").style.display = "block";
+                    }
+                    else
+                    {
+                        document.getElementById("nct_h").style.display = "none";
+                    };
+                }
+                if (cl == "rf_h")
+                {
+                    if (checked)
+                    {
+                        document.getElementById("rf_h").style.display = "block";
+                    }
+                    else
+                    {
+                        document.getElementById("rf_h").style.display = "none";
+                    };
+                }
+                if (cl == "lsa_h")
+                {
+                    if (checked)
+                    {
+                        document.getElementById("lsa_h").style.display = "block";
+                    }
+                    else
+                    {
+                        document.getElementById("lsa_h").style.display = "none";
+                    };
+                }
+                
+        };
+        document.getElementById('block1').addEventListener('onclick', hideBlocks("gallery_h"));
+        document.getElementById('block2').addEventListener('onclick', hideBlocks("contacts_h"));
+        document.getElementById('block3').addEventListener('onclick', hideBlocks("graph_h"));
+        document.getElementById('block4').addEventListener('onclick', hideBlocks("nct_h"));
+        document.getElementById('block5').addEventListener('onclick', hideBlocks("rf_h"));
+        document.getElementById('block6').addEventListener('onclick', hideBlocks("lsa_h")); */
+    </script>
     </main>
-    
-    
     <footer>
         <div>
             <a href="https://vk.com/kiricsl7834">
@@ -229,7 +459,7 @@
                 <img src="../img/gh.png" alt="github" width="30">
             </a>
         </div>
-        <div>Cайт разработан ФИ, Copyright © 2021</div>
+        <div>Cайт разработан Лыковым Кириллом, Copyright © 2021</div>
     </footer>
 </body>
 </html>
