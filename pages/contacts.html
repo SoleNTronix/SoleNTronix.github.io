@@ -3,8 +3,39 @@
 <head>
     <link rel="stylesheet" href="../style/style.css">
     <meta charset="UTF-8">
-    <title>Siteik</title>
+    <title>Контакты</title>
+    <style>
+        .contacts
+        {
+            border: solid 10px aquamarine;
+            border-radius: 10px;
+            border-style:ridge;
+            width: 500px;
+            margin: auto;
+            margin-bottom: 175px;
+            display: flex;
+            height: 960px;
+        }
+        .border
+        {
+            border: solid 5px aquamarine;
+            border-radius: 5px;
+            border-style: groove;
+            width: 225px;
+        }
+    </style>
     <script>
+        function t_change()
+        {
+            if (document.body.classList.contains("darkTheme"))
+            {
+                document.body.classList.replace("darkTheme","defaultTheme");
+            }
+            else
+            {
+                document.body.classList.replace("defaultTheme","darkTheme");
+            }
+        }
         function checkform()
         {   
             naame = document.formochka.naame.value;
@@ -61,11 +92,12 @@
     </script>
 </head>
 <body>
-    <div class="blackbg">
+    <div class="blackbg">  
         <nav>
             <ul class="logo">
                 <a href="../index.html">
                     <img src="../img/anime.webp" alt="logo" width="100px">
+                    Лыков К.
                 </a>
                 <ul class="menu">
                 
@@ -99,9 +131,26 @@
                             <h4>Контакты</h4>
                         </a>
                     </ul>
+                    <ul class="submenu">
+                        <h5>|</h5>
+                        <a href="../pages/jspractice.html">
+                            <h4>Задания по JS</h4>
+                        </a>
+                    </ul>
+                    
                 </ul>
+                
+            </ul>
+            <ul>
+                <button onclick="t_change()">Change Theme</button>
             </ul>
         </nav>
+        <div class="intro">
+            <header style="display: flex; justify-content: space-evenly; align-items: flex-end;  width: 912px; height: 265.6px;">
+                <h1>Веб-технологии</h1>
+                <h2>Университет "Дубна"</h2>
+            </header>
+        </div>
     </div>
     
     <header style="display: flex; justify-content: center;">

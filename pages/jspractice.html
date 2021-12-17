@@ -7,23 +7,86 @@
     <link rel="stylesheet" href="../style/style.css">
     <title>Задания по JS</title>
     <style>
-        .black_t{
-            background-color: black;
-            text-decoration-color: white;
+        .grid-container{
+            display: grid;
+            grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas:
+                "d1 d1 d2 d2"
+                "d1 d1 d2 d2"
+                "d3 d3 d4 d4"
+                "d3 d3 d4 d4"
+                "d5 d5 d6 d6"
+                "d5 d5 d6 d6"
+            ;
+            height: 100vh;
         }
-        .white_t{
-            background-color: white;
-            text-decoration-color: black;
-        }
-        .author_t{
-            background-color: lightsteelblue;
-            text-decoration-color: aqua;
-        }
-        .gallery{
+        .bg_clr
+        {
+            background-color:cornflowerblue;
+            margin: 5px;
             
         }
+        .d1{
+            grid-area: d1;
+        }
+        .d2{
+            grid-area: d2;
+        }
+        .d3{
+            grid-area: d3;
+        }
+        .d4{
+            grid-area: d4;
+        }
+        .d5{
+            grid-area: d5;
+        }
+        .d6{
+            grid-area: d6;
+        }
+
+        <!--Gallery-->
+        .gallery
+        {
+            background-color: violet;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            flex-direction: column;
+        }
+        .img-list
+        {
+            display: flex; 
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+        button
+        {
+            width: 500px;
+        }
+        .border-img
+        {
+            border: 4px;
+            border-style: outset;
+            border-color: aqua;
+        }
+
     </style>
     <script>
+        function t_change()
+        {
+            if (document.body.classList.contains("darkTheme"))
+            {
+                document.body.classList.replace("darkTheme","defaultTheme");
+            }
+            else
+            {
+                document.body.classList.replace("defaultTheme","darkTheme");
+            }
+        }
         id = null;
         a = 1;
         function start()
@@ -83,7 +146,7 @@
                     </ul>
                     <ul class="submenu">
                         <h5>|</h5>
-                        <a href="#comps">
+                        <a href="../index.html#comps">
                             <h4>Компетенции</h4>
                         </a>
                     </ul>
@@ -104,7 +167,7 @@
                 
             </ul>
             <ul>
-                <button>Change Theme</button>
+                <button onclick="t_change()">Change Theme</button>
             </ul>
         </nav>
         <div class="intro">
@@ -114,10 +177,11 @@
             </header>
         </div>
     </div>
-    <!-- Gallery-->
-    <div class="gallery">
-        <div class="sl_ctr">
-            <div class="sldr">
+    <main>
+        <!-- Gallery-->
+    <div class="gallery bg_clr d1">
+        <div>
+            <div>
                 <img src="../img/cat1.jpg" alt="cat0" height="450 px">
                 <div class="img-list">
                     <p>
@@ -132,12 +196,40 @@
             
                 </div>
             </div>
-            <div class="prv_b"></div>
-            <div class="nxt_b"></div>
         </div>
         <button onclick="start()">Start!</button>
         <button onclick="stop()">Stop!</button>
     </div>
+    <div class="bg_clr d2">
+        2
+    </div>
+    <div class="bg_clr d3">
+        3
+    </div>
+    <div class="bg_clr d4">
+        4
+    </div>
+    <div class="bg_clr d5">
+        5
+    </div>
+    <div class="bg_clr d6">
+        6
+    </div>
+    </main>
     
+    
+    <footer>
+        <div>
+            <a href="https://vk.com/kiricsl7834">
+                <img src="../img/vk.png" alt="vk" width="30">
+            </a>
+            <img src="../img/ok.png" alt="ok" width="30">
+            <img src="../img/fb.png" alt="fb" width="30">
+            <a href="https://github.com/SoleNTronix">
+                <img src="../img/gh.png" alt="github" width="30">
+            </a>
+        </div>
+        <div>Cайт разработан ФИ, Copyright © 2021</div>
+    </footer>
 </body>
 </html>
