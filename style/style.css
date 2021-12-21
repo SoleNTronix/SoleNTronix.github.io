@@ -49,7 +49,8 @@ a{text-decoration: none;}
 .intro
 {
     display: flex;
-    background-image: url(../img/bg.jpg);    
+    background-image: url(../img/bg.jpg);
+    background-size: 1600px 800px;
     padding-bottom: 25%;
 }
 

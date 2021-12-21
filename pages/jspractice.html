@@ -17,8 +17,7 @@
                 "d3 d3 d4 d4"
                 "d3 d3 d4 d4"
                 "d5 d5 d6 d6"
-                "d5 d5 d6 d6"
-            
+                "d5 d5 d6 d6"            
             ;
             height: 100vh;
         }
@@ -75,16 +74,21 @@
             border-color: aqua;
         }
 
-        <!--Contact form-->
-
         .contacts
+        {
+            
+            display: flex;
+
+        }
+        .contactform
         {
             border: solid 10px aquamarine;
             border-radius: 10px;
             border-style:ridge;
             width: 500px;
             margin: auto;
-            margin-bottom: 175px;
+            margin-bottom: 75px;
+            margin-top: 75px;
             height: 960px;
         }
         .border
@@ -94,9 +98,15 @@
             border-style:ridge;
             width: 225px;
         }
+
         .notcopytext
-        {
+        {          
             display: flex;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
         }
         .graph
         {
@@ -112,8 +122,7 @@
             display: flex; 
             align-items: center; 
             flex-direction: column;
-        }
-
+        }                       
     </style>
     <script>
         function t_change()
@@ -133,11 +142,8 @@
         id = null;
         a = 2;
         function start()
-		{
+		{            
 			id = setTimeout("start()", 3000);
-            document.images[1].src= document.images[a].src;
-            document.images[a].classList.add("border-img");
-            document.images[a-1].classList.remove("border-img");
             if (a == 5)
             {
                 a = 2;
@@ -146,6 +152,10 @@
             {
                 document.images[4].classList.remove("border-img");
             }
+            document.images[1].src= document.images[a].src;
+            document.images[a].classList.add("border-img");
+            document.images[a-1].classList.remove("border-img");
+            
             a = a + 1;
 		}
         function stop()
@@ -154,7 +164,7 @@
 		}
         function f(a)
         {
-            document.images[1].src="../img/cat"+a+".jpg"
+            document.images[1].src="../img/gif"+a+".gif"
         }
 
         //Contact form
@@ -288,33 +298,34 @@
     
     <main>
         <!-- Gallery-->
-    <div class="gallery bg_clr d1" id="gallery_h">
-        <div>
+    <div class="bg_clr d1" id="gallery_h">
+        <div class="gallery">
+            <div>
+                <div style="display: flex; justify-content: center;">
+                    <img src="../img/gif1.gif" alt="cat0" height="450 px">                
+                </div>
+                <div class="img-list">
+                    <p>
+                        <img src="../img/gif1.gif" alt="cat1" height="125 px" onclick="f('1')">
+                    </p>
+                    <p>
+                        <img src="../img/gif2.gif" alt="cat2" height="125 px" onclick="f('2')">
+                    </p>
+                    <p>
+                        <img src="../img/gif3.gif" alt="cat3" height="125 px" onclick="f('3')">
+                    </p>
+            
+                </div>
+            </div>
             <div style="display: flex; justify-content: center;">
-                <img src="../img/cat1.jpg" alt="cat0" height="450 px">                
+                <button onclick="start()">Start!</button>
+                <button onclick="stop()">Stop!</button>
             </div>
-            <div class="img-list">
-                <p>
-                    <img src="../img/cat1.jpg" alt="cat1" height="125 px" onclick="f('1')">
-                </p>
-                <p>
-                    <img src="../img/cat2.jpg" alt="cat2" height="125 px" onclick="f('2')">
-                </p>
-                <p>
-                    <img src="../img/cat3.jpg" alt="cat3" height="125 px" onclick="f('3')">
-                </p>
-        
-            </div>
-        </div>
-        <div style="display: flex; justify-content: center;">
-            <button onclick="start()">Start!</button>
-            <button onclick="stop()">Stop!</button>
-        </div>
-        
+        </div>                
     </div>
         <!-- Contacts-->
     <div class="contacts bg_clr d2" id="contacts_h">
-            <form action="javascript: checkform()" name="formochka">
+            <form action="javascript: checkform()" name="formochka" class="contactform">
                 Как Вам удобно получить ответ?
                 <p><input name="answer" type="radio" id="rb1" onclick="hide(this.id)"> Почта</p>
                 <p><input name="answer" type="radio" id="rb2" onclick="hide(this.id)"> Телефон</p>
@@ -352,15 +363,16 @@
                     Ваш вопрос:
                     <p><textarea name="question_text" id="" cols="30" rows="10"></textarea>
                 </div>
-                <p><input type="submit" value="Отправить" class="border"></p>
-                
+                <p><input type="submit" value="Отправить" class="border"></p>                
             </form>
     </div>
     <div class="graph bg_clr d3" id="graph_h">
         3
     </div>
-    <div class="notcopytext bg_clr d4" id="nct_h">
-        4
+    <div class="notcopytext bg_clr d4" id="nct_h" style="display: flex; flex-direction: column; align-items: center;">
+        
+        <img src="../img/mikey.jpg" alt="mikey" style="width: 225px; height: 225px;">
+        Майки
     </div>
     <div class="regform bg_clr d5" id="rf_h">
         5
