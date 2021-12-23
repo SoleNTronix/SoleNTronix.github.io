@@ -23,7 +23,7 @@
         }
         .bg_clr
         {
-            background-color:rgba(55, 189, 207, 0.5);
+            background-color:rgb(129, 240, 255);
             margin: 5px;
             
         }
@@ -43,10 +43,16 @@
             grid-area: d5;
         }
         .d6{
-            grid-area: d6;
+            grid-area: d6;    
+        }
+        .wrapper
+        {
+            margin: 75px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        <!--Gallery-->
 
         .gallery
         {
@@ -69,10 +75,12 @@
         }
         .border-img
         {
-            border: 4px;
+            border: 5px;
             border-style: outset;
-            border-color: aqua;
+            border-color: rgb(255, 187, 0);
+            position:static;
         }
+        
 
         .contacts
         {
@@ -82,7 +90,7 @@
         }
         .contactform
         {
-            border: solid 10px aquamarine;
+            border: solid 10px rgb(255, 187, 0);
             border-radius: 10px;
             border-style:ridge;
             width: 500px;
@@ -93,7 +101,7 @@
         }
         .border
         {
-            border: solid 5px aquamarine;
+            border: solid 5px rgb(255, 187, 0);
             border-radius: 5px;
             border-style:ridge;
             width: 225px;
@@ -129,11 +137,34 @@
         {
             if (document.body.classList.contains("darkTheme"))
             {
-                document.body.classList.replace("darkTheme","defaultTheme");
+                document.body.classList.remove("darkTheme");
+                document.getElementById("intro").classList.add("intro");
+                document.getElementById("intro").classList.remove("intro_dark");
+                document.getElementById("cb_menu").classList.remove("darkTheme_block");
+                document.getElementById("b1_th").classList.remove("darkTheme_block");
+                document.getElementById("b2_th").classList.remove("darkTheme_block");
+                document.getElementById("b3_th").classList.remove("darkTheme_block");
+                document.getElementById("b4_th").classList.remove("darkTheme_block");
+                document.getElementById("b5_th").classList.remove("darkTheme_block");
+                document.getElementById("b6_th").classList.remove("darkTheme_block");
+                document.getElementById("header1").classList.remove("darkTheme_header");
+                document.getElementById("header2").classList.remove("darkTheme_header");
             }
             else
             {
-                document.body.classList.replace("defaultTheme","darkTheme");
+                document.body.classList.add("darkTheme");
+                document.getElementById("intro").classList.remove("intro");
+                document.getElementById("intro").classList.add("intro_dark");
+                document.getElementById("cb_menu").classList.add("darkTheme_block");
+                document.getElementById("b1_th").classList.add("darkTheme_block");
+                document.getElementById("b2_th").classList.add("darkTheme_block");
+                document.getElementById("b3_th").classList.add("darkTheme_block");
+                document.getElementById("b4_th").classList.add("darkTheme_block");
+                document.getElementById("b5_th").classList.add("darkTheme_block");
+                document.getElementById("b6_th").classList.add("darkTheme_block");
+                document.getElementById("header1").classList.add("darkTheme_header");
+                document.getElementById("header2").classList.add("darkTheme_header");
+
             }
         }
 
@@ -222,19 +253,75 @@
                 document.getElementById("mail_div").style.display = "none";
             }
         }
+        //Graph
+        let array=[];
+        let max=0;
+        function draw()
+        {
+            max=parseInt(array[0].value,10);
+            let Draw = document.getElementById("canvas");
+            let g =Draw.getContext("2d");
+            g.clearRect(0, 0, canvas.width, canvas.height)
+            for (i=0;i<array.length;i++)
+            {
+                if (max<parseInt(array[i].value,10))
+                {
+                    max=parseInt(array[i].value,10);
+                }
+            }
+            for(i=0;i<array.length;i++)
+            {
+                g.fillStyle = "blue";
+                g.fillRect(15*(i+1), max, 10, -array[i].value);
 
+            }
+            console.log("max "+max);
+        }
+        function ceratuer()
+        {
+            let number=(document.getElementById("num").value);
+            for (i = 0; i<number;i++)
+            {
+                elem = document.createElement("input");
+                elem.type="text"
+                elem.className="elem";
+                array.push(elem);
+                document.getElementById("TextFiled").appendChild(elem)
+            }
+        }
+        //RegForm
+        function registrate()
+        {            
+            let name = document.getElementById("conf_name").value;
+            if(name == '')
+            {
+                alert("Please, write username!")
+            }
+            else
+            {
+                if(document.getElementById("conf_rb1").checked || document.getElementById("conf_rb2").checked)
+                {
+                    alert("Successful registration!");
+                }
+                else
+                {
+                    alert("Please, choose your sex!")
+                }
+            }
+        }
         //Area for local storage
         function ls_data() {            
             localStorage.setItem('data', data.value);
         };
     </script>
+    
 </head>
 <body>
     <div class="blackbg">  
         <nav>
             <ul class="logo">
                 <a href="../index.html">
-                    <img src="../img/anime.webp" alt="logo" width="100px">
+                    <img src="../img/logo.gif" alt="logo" width="100px">
                     Лыков К.
                 </a>
                 <ul class="menu">
@@ -276,30 +363,66 @@
                         </a>
                     </ul>
                     
+                    
                 </ul>
-                
+                <button style="width: 125px; height: 25px;" onclick="t_change()" class="border" name="button">Change Theme</button>
             </ul>
+            
         </nav>
-        <div class="intro">
+        <div class="intro" id="intro">
             <header style="display: flex; justify-content: space-evenly; align-items: flex-end;  width: 912px; height: 265.6px;">
-                <h1>Веб-технологии</h1>
-                <h2>Университет "Дубна"</h2>
+                <h1 id="header1">Веб-технологии</h1>
+                <h2 id="header2">Университет "Дубна"</h2>
             </header>
         </div>
     </div>
-    <div>
-        <input type="checkbox" name="" id="block1">Фотогалерея
-        <input type="checkbox" name="" id="block2">Форма
-        <input type="checkbox" name="" id="block3">Диаграмма
-        <input type="checkbox" name="" id="block4">Некопируемый текст
-        <input type="checkbox" name="" id="block5">Форма регистрации
-        <input type="checkbox" name="" id="block6">Поле ввода
+    <div id="cb_menu">
+        <input type="checkbox" name="" id="block1" onclick="hideBlocks()">Фотогалерея
+        <input type="checkbox" name="" id="block2" onclick="hideBlocks()">Форма
+        <input type="checkbox" name="" id="block3" onclick="hideBlocks()">Диаграмма
+        <input type="checkbox" name="" id="block4" onclick="hideBlocks()">Некопируемый текст
+        <input type="checkbox" name="" id="block5" onclick="hideBlocks()">Форма регистрации
+        <input type="checkbox" name="" id="block6" onclick="hideBlocks()">Поле ввода
+        <script>
+            function hideBlocks(){
+                    document.getElementById("gallery_h").style.display = "block";
+                    document.getElementById("contacts_h").style.display = "block";
+                    document.getElementById("graph_h").style.display = "block";
+                    document.getElementById("nct_h").style.display = "block";
+                    document.getElementById("rf_h").style.display = "block";
+                    document.getElementById("lsa_h").style.display = "block";
+                    if (document.getElementById('block1').checked == false)
+                    {
+                        document.getElementById("gallery_h").style.display = "none";
+                    }                        
+                    if (document.getElementById('block2').checked == false)
+                    {
+                        document.getElementById("contacts_h").style.display = "none";
+                    }
+                    if (document.getElementById('block3').checked == false)
+                    {
+                        document.getElementById("graph_h").style.display = "none";
+                    }
+                    if (document.getElementById('block4').checked == false)
+                    {
+                        document.getElementById("nct_h").style.display = "none";
+                    }
+                    if (document.getElementById('block5').checked == false)
+                    {
+                        document.getElementById("rf_h").style.display = "none";
+                    }
+                    if (document.getElementById('block6').checked == false)
+                    {
+                        document.getElementById("lsa_h").style.display = "none";
+                    }
+                }
+        </script>
     </div>
     
     <main>
         <!-- Gallery-->
-    <div class="bg_clr d1" id="gallery_h">
-        <div class="gallery">
+    <div class="bg_clr d1 gallery" id="gallery_h" style="display: none;">
+        <div class="wrapper" id="b1_th">
             <div>
                 <div style="display: flex; justify-content: center;">
                     <img src="../img/gif1.gif" alt="cat0" height="450 px">                
@@ -317,15 +440,15 @@
             
                 </div>
             </div>
-            <div style="display: flex; justify-content: center;">
-                <button onclick="start()">Start!</button>
-                <button onclick="stop()">Stop!</button>
+            <div>
+                <button onclick="start()" class="border" name="button">Start!</button>
+                <button onclick="stop()" class="border" name="button">Stop!</button>
             </div>
         </div>                
     </div>
         <!-- Contacts-->
-    <div class="contacts bg_clr d2" id="contacts_h">
-            <form action="javascript: checkform()" name="formochka" class="contactform">
+    <div class="contacts bg_clr d2" id="contacts_h" style="display: none;">
+            <form action="javascript: checkform()" name="formochka" class="contactform" id="b2_th">
                 Как Вам удобно получить ответ?
                 <p><input name="answer" type="radio" id="rb1" onclick="hide(this.id)"> Почта</p>
                 <p><input name="answer" type="radio" id="rb2" onclick="hide(this.id)"> Телефон</p>
@@ -363,102 +486,55 @@
                     Ваш вопрос:
                     <p><textarea name="question_text" id="" cols="30" rows="10"></textarea>
                 </div>
-                <p><input type="submit" value="Отправить" class="border"></p>                
+                <p><input type="submit" value="Отправить" class="border" name="button"></p>                
             </form>
     </div>
-    <div class="graph bg_clr d3" id="graph_h">
-        3
+    <div class="graph bg_clr d3" id="graph_h" style="display: none;">
+        <div id="b3_th" class="wrapper">
+            <button onclick="hide('first')"> Скрыть / показать блок</button>
+            <div id="first" class="block">
+                <input type="text" id ="num">
+                <button onclick="ceratuer()">Сколько полей</button>
+                <button onclick="draw()">Диаграмма</button>
+                <div id="TextFiled">
+            
+                </div>
+                <canvas id="canvas" style="display: flex; align-items: center; margin: auto;">
+            
+                </canvas>
+            </div>
+        </div>
     </div>
-    <div class="notcopytext bg_clr d4" id="nct_h" style="display: flex; flex-direction: column; align-items: center;">
+    <div class="notcopytext bg_clr d4" id="nct_h" style="display: none;" >
+        <div class="wrapper" style="display: flex; flex-direction: column; align-items: center;" id="b4_th">
+            <img src="../img/mikey.jpg" alt="mikey" style="width: 225px; height: 225px;">
+            Майки
+        </div>
         
-        <img src="../img/mikey.jpg" alt="mikey" style="width: 225px; height: 225px;">
-        Майки
+        
     </div>
-    <div class="regform bg_clr d5" id="rf_h">
-        5
+    <div class="regform bg_clr d5" id="rf_h" style="display: none;">
+        <div class="wrapper">
+            <div class="wrapper border" id="b5_th">
+                Username <input type="text" id="conf_name">
+                Password <input type="password">                
+                <div>
+                    Male<input type="radio" name="sex" id="conf_rb1">
+                    Female<input type="radio" name="sex" id="conf_rb2">
+                </div>
+                <input type="submit" onclick="registrate()">
+                <div id="outwrite"></div>
+            </div>
+        </div>        
     </div>
-    <div class="locstorarea bg_clr d6" id="lsa_h">
-        <textarea name="data" id="data" cols="30" rows="10"></textarea>
-        <button onclick="ls_data()">Отправить в localStorage</button>
+    <div class="locstorarea bg_clr d6" id="lsa_h" style="display: none;">
+        <div class="wrapper" id="b6_th">
+            <textarea name="data" id="data" cols="30" rows="10"></textarea>
+            <button onclick="ls_data()" class="border" name="button">Отправить в localStorage</button>
+        </div>
+        
     </div>
-    <script>
-        /*function hideBlocks(cl){
-                let checked = this.checked;
-                if (cl == "gallery_h")
-                {
-                    if (checked)
-                    {
-                        document.getElementById("gallery_h").style.visibility='visible';
-                    }
-                    else
-                    {
-                        document.getElementById("gallery_h").style.visibility='hidden';
-                    };
-                }
-                if (cl == "contacts_h")
-                {
-                    if (checked)
-                    {
-                        document.getElementById("contacts_h").style.display = "block";
-                    }
-                    else
-                    {
-                        document.getElementById("contacts_h").style.display = "none";
-                    };
-                }
-                if (cl == "graph_h")
-                {
-                    if (checked)
-                    {
-                        document.getElementById("graph_h").style.display = "block";
-                    }
-                    else
-                    {
-                        document.getElementById("graph_h").style.display = "none";
-                    };
-                }
-                if (cl == "nct_h")
-                {
-                    if (checked)
-                    {
-                        document.getElementById("nct_h").style.display = "block";
-                    }
-                    else
-                    {
-                        document.getElementById("nct_h").style.display = "none";
-                    };
-                }
-                if (cl == "rf_h")
-                {
-                    if (checked)
-                    {
-                        document.getElementById("rf_h").style.display = "block";
-                    }
-                    else
-                    {
-                        document.getElementById("rf_h").style.display = "none";
-                    };
-                }
-                if (cl == "lsa_h")
-                {
-                    if (checked)
-                    {
-                        document.getElementById("lsa_h").style.display = "block";
-                    }
-                    else
-                    {
-                        document.getElementById("lsa_h").style.display = "none";
-                    };
-                }
-                
-        };
-        document.getElementById('block1').addEventListener('onclick', hideBlocks("gallery_h"));
-        document.getElementById('block2').addEventListener('onclick', hideBlocks("contacts_h"));
-        document.getElementById('block3').addEventListener('onclick', hideBlocks("graph_h"));
-        document.getElementById('block4').addEventListener('onclick', hideBlocks("nct_h"));
-        document.getElementById('block5').addEventListener('onclick', hideBlocks("rf_h"));
-        document.getElementById('block6').addEventListener('onclick', hideBlocks("lsa_h")); */
-    </script>
+    
     </main>
     <footer>
         <div>
